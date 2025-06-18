@@ -26,7 +26,7 @@ class TestSmokeTest():
     self.driver.quit()
   
   def test_adminPage(self):
-    self.driver.get("https://carlosyaelcervantesrojas.github.io/cse270-teton/admin.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
     self.driver.set_window_size(1382, 744)
     elements = self.driver.find_elements(By.ID, "username")
     assert len(elements) > 0
@@ -37,7 +37,7 @@ class TestSmokeTest():
     WebDriverWait(self.driver, 30).until(expected_conditions.text_to_be_present_in_element((By.CSS_SELECTOR, ".errorMessage"), "Invalid username and password."))
   
   def test_directoryPage(self):
-    self.driver.get("https://carlosyaelcervantesrojas.github.io/cse270-teton/directory.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/directory.html")
     self.driver.set_window_size(1382, 744)
     self.driver.find_element(By.ID, "directory-grid").click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)").text == "Teton Turf and Tree"
@@ -45,7 +45,7 @@ class TestSmokeTest():
     assert self.driver.find_element(By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)").text == "Teton Turf and Tree"
   
   def test_homePage(self):
-    self.driver.get("https://carlosyaelcervantesrojas.github.io/cse270-teton/")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(1382, 744)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
@@ -61,7 +61,7 @@ class TestSmokeTest():
     self.driver.find_element(By.LINK_TEXT, "Join Us").click()
   
   def test_joinPage(self):
-    self.driver.get("https://carlosyaelcervantesrojas.github.io/cse270-teton/join.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/join.html")
     self.driver.set_window_size(1382, 744)
     elements = self.driver.find_elements(By.NAME, "fname")
     assert len(elements) > 0
